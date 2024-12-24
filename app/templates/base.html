@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CMS</title>
+</head>
+<body>
+    <div>
+        <form method="get" action="/">
+            <input type="text" name="search" placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

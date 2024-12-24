@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Word</title>
+</head>
+<body>
+    <h1>Edit Word</h1>
+
+    <form method="post">
+        <label for="word">Word:</label>
+        <input type="text" name="word" value="{{ word.word }}">
+        <br>
+        <label for="translation">Translation:</label>
+        <input type="text" name="translation" value="{{ word.translation }}">
+        <br>
+        <label for="example">Example Sentence:</label>
+        <input type="text" name="example" value="{{ word.example }}">
+        <br>
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{{ url_for('routes.index') }}">Back to List</a>
+</body>
+</html>

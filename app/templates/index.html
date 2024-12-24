@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS</title>
+</head>
+<body>
+    <h1>Words and Phrases</h1>
+    
+    <form method="get">
+        <input type="text" name="search" placeholder="Search" value="{{ request.args.get('search', '') }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for word in words.items %}
+            <li>
+                <strong>{{ word.word }}</strong> - {{ word.translation }}
+                {% if word.example %}
+                    <br><em>{{ word.example }}</em>
+                {% endif %}
+                <a href="{{ url_for('routes.edit', id=word.id) }}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        {% if words.has_prev %}
+            <a href="{{ url_for('routes.index', page=words.prev_num) }}">Previous</a>
+        {% endif %}
+        {% if words.has_next %}
+            <a href="{{ url_for('routes.index', page=words.next_num) }}">Next</a>
+        {% endif %}
+    </div>
+</body>
+</html>
